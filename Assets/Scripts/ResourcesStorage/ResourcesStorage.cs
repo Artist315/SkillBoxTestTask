@@ -13,7 +13,7 @@ public static class ResourcesStorage
         {
             if (_data == null)
             {
-                _data = StorageManager.ReadData();
+                _data = StorageManager.ReadResourcesData();
             }
             return _data;
         }
@@ -29,7 +29,7 @@ public static class ResourcesStorage
         if (amount>0)
         {
             Data.Wood += amount;
-            StorageManager.Save(Data);
+            StorageManager.SaveResources(Data);
             ResourcesUpdated?.Invoke();
         }
     }

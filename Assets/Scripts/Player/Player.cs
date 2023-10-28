@@ -15,17 +15,14 @@ public class Player : Singleton<Player>
     #endregion
 
     #region Player Settings
-
-    [SerializeField]
-    //private PlayerSettings _playerSettings;
-    //public PlayerCharacteristics Characteristics { get; private set; } = new PlayerCharacteristics();
+    public PlayerSettings PlayerSettings { get; private set; }
     #endregion
     // Start is called before the first frame update
     private void Awake()
     {
         _playerMoverView = GetComponent<PlayerMoverView>();
         AreasInteraction = GetComponent<AreasInteraction>();
-        //SetCharachteristics();
+        PlayerSettings = StorageManager.ReadPlayerSettings();
     }
 
     private void Start()

@@ -40,7 +40,7 @@ namespace Assets.Scripts.Player.PlayerStates.States
             var currentDir = _player.transform.position + new Vector3(Horizontal, 0, Vertical);
             _playerMoverView.LookAt(currentDir);
 
-            _playerMoverView.Move(Vector3.Normalize(new Vector3(Horizontal,0 , Vertical)) * Time.deltaTime * 3);
+            _playerMoverView.Move(Vector3.Normalize(new Vector3(Horizontal,0 , Vertical)) * Time.deltaTime * _player.PlayerSettings.Speed);
         }
 
         public override void Exit()
