@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 10fa50c59af8fd440a0348904414802a
+guid: 8b91f940d699d404e85665bdfac22a02
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
@@ -7,8 +7,8 @@ ModelImporter:
       74: 416870459326255563
     second: tpose
   - first:
-      74: -1582444622346850160
-    second: MiningLoop
+      74: 2020693924649305378
+    second: Gathering
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -25,7 +25,12 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'human_male_gathering_01' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Shoulder_R' has scale animation
+      that will be discarded.\n\t'Elbow_R' has translation animation that will be
+      discarded.\n\t'Elbow_R' has scale animation that will be discarded.\n\t'Wrist_R'
+      has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -39,19 +44,19 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: human_male_mine_01
-      takeName: human_male_mine_01
+      name: tpose
+      takeName: tpose
       internalID: 0
-      firstFrame: 2
-      lastFrame: 40
+      firstFrame: 0
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -68,19 +73,19 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: MiningLoop
-      takeName: human_male_mine_01
+      name: Gathering
+      takeName: human_male_gathering_01
       internalID: 0
       firstFrame: 2
-      lastFrame: 40
+      lastFrame: 69
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 1
@@ -585,19 +590,19 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: MiningLoop(Clone)
+    - name: Gathering(Clone)
       parentName: 
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Armature
-      parentName: MiningLoop(Clone)
+      parentName: Gathering(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Root_M
       parentName: Armature
-      position: {x: -1.9984014e-17, y: 1.058651, z: -0.013022041}
+      position: {x: -1.9706458e-17, y: 1.058651, z: -0.013022041}
       rotation: {x: 0.49653503, y: -0.50344115, z: -0.49653503, w: 0.50344115}
       scale: {x: 1, y: 1, z: 1}
     - name: Spine1_M
@@ -823,7 +828,7 @@ ModelImporter:
     - name: jointItemR
       parentName: Wrist_R
       position: {x: -0.116775185, y: -0.003538352, z: -0.036435187}
-      rotation: {x: -0.083362624, y: 0.7335199, z: 0.114088245, w: 0.66481817}
+      rotation: {x: -0.13844743, y: 0.98996454, z: 0.028244814, w: -0.0021931236}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_shoulder_R
       parentName: Scapula_R
@@ -958,7 +963,7 @@ ModelImporter:
     - name: jointItemL
       parentName: Wrist_L
       position: {x: 0.116775215, y: 0.003538363, z: 0.036435228}
-      rotation: {x: 0.11408826, y: -0.66481817, z: 0.08336265, w: 0.7335199}
+      rotation: {x: 0.9887743, y: 0.13961887, z: -0.04857945, w: -0.02172627}
       scale: {x: 1, y: 1, z: 1}
     - name: jnt_shoulder_L
       parentName: Scapula_L
@@ -1018,11 +1023,6 @@ ModelImporter:
     - name: ToesEnd_L
       parentName: Toes_L
       position: {x: 0.062128127, y: -1.110223e-16, z: 1.0658141e-16}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Mesh
-      parentName: MiningLoop(Clone)
-      position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5

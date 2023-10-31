@@ -68,6 +68,7 @@ public static class StorageManager
 public class ResourcesData
 {
     public int Wood = 0;
+    public int Rock = 0;
 }
 
 public class PlayerSettings

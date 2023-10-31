@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Player.PlayerStates.States
 {
@@ -13,7 +14,18 @@ namespace Assets.Scripts.Player.PlayerStates.States
             Name = "WalkState";
             _playerMoverView.SetAnimation("AnimState", 1);
             _player.AreasInteraction.TreeInTheArea += StartCuttingTree;
+            _player.AreasInteraction.RockInTheArea += StartMining;
+            _player.AreasInteraction.FoodInTheArea += StartGathering;
             base.Enter();
+        }
+
+        private void StartMining(object obj)
+        {
+            stateMachine.ChangeState(PlayerStateEnum.Mine, obj);
+        }
+        private void StartGathering(object obj)
+        {
+            stateMachine.ChangeState(PlayerStateEnum.Gather, obj);
         }
 
         private void StartCuttingTree(object obj)
@@ -46,6 +58,8 @@ namespace Assets.Scripts.Player.PlayerStates.States
         public override void Exit()
         {
             _player.AreasInteraction.TreeInTheArea -= StartCuttingTree;
+            _player.AreasInteraction.RockInTheArea -= StartMining;
+            _player.AreasInteraction.RockInTheArea -= StartGathering;
             base.Exit();
         }
     }

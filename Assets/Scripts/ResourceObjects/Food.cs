@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class Tree : MonoBehaviour, ResourceObject
+public class Food : MonoBehaviour, ResourceObject
 {
     public int ResourceProTick { get; set; } = 10;
     public int ResourceAmount { get; set; } = 1000;

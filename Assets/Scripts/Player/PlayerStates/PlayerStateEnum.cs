@@ -4,6 +4,8 @@ public enum  PlayerStateEnum
     Default,
     Idle,
     Walk,
-    Chop
+    Chop,
+    Mine,
+    Gather
 
 }

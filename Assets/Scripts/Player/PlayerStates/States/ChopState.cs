@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 namespace Assets.Scripts.Player.PlayerStates.States
 {
     public class ChopState : PlayerState
     {
-        private GameObject Tree { get; set; }
+        private Tree Tree { get; set; }
         private Coroutine coroutine;
         public ChopState(StateMachine stateMachine) : base(stateMachine)
         {
@@ -18,16 +13,17 @@ namespace Assets.Scripts.Player.PlayerStates.States
 
         public override void Enter(object param = null)
         {
-            if (param is GameObject tree)
+            if (param is Tree tree)
             {
                 Tree = tree;
             }
             Name = "ChopState";
             _playerMoverView.SetAnimation("AnimState", 2);
-            base.Enter();
             Debug.Log("LookAtTree");
             _playerMoverView.LookAt(Tree.transform);
             coroutine = TimerManager.Instance.CreateRepeatedTimer(.5f, GetWood);
+
+            base.Enter();
         }
         public override void HandleInput()
         {
@@ -44,20 +40,15 @@ namespace Assets.Scripts.Player.PlayerStates.States
         public override void LogicUpdate()
         {
             base.LogicUpdate();
-
         }
 
         private void GetWood()
         {
-            if (Tree.TryGetComponent<Tree>(out var tree))
+            if (Tree.ResourceAmount - Tree.ResourceProTick > 0)
             {
-                if (tree.WoodAmount - tree.WoodProTick > 0)
-                {
-                    Debug.Log("RecieveWood");
-                    tree.WoodAmount -= tree.WoodProTick;
-                    ResourcesStorage.AddWood(tree.WoodProTick);
-                }
-                
+                Debug.Log("RecieveWood");
+                Tree.ResourceAmount -= Tree.ResourceProTick;
+                ResourcesStorage.AddWood(Tree.ResourceProTick);
             }
         }
 

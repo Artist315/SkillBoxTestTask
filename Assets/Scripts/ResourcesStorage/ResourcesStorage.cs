@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,5 +38,15 @@ public static class ResourcesStorage
     private static void UpdateUI()
     {
 
+    }
+
+    internal static void AddStone(int amount)
+    {
+        if (amount > 0)
+        {
+            Data.Rock += amount;
+            StorageManager.SaveResources(Data);
+            ResourcesUpdated?.Invoke();
+        }
     }
 }

@@ -30,9 +30,12 @@ public class StateMachine
             case PlayerStateEnum.Chop:
                 CurrentState = _playerFiniteStateMachineModel.Chop;
                 break;
-            //case PlayerStateEnum.Idling:
-            //    CurrentState = _playerFiniteStateMachineModel.Idling;
-            //    break;
+            case PlayerStateEnum.Mine:
+                CurrentState = _playerFiniteStateMachineModel.Mine;
+                break;
+            case PlayerStateEnum.Gather:
+                CurrentState = _playerFiniteStateMachineModel.Gather;
+                break;
             //case PlayerStateEnum.Detecting:
             //    CurrentState = _playerFiniteStateMachineModel.Detecting;
             //    break;
