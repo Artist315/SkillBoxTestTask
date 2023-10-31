@@ -16,7 +16,13 @@ namespace Assets.Scripts.Player.PlayerStates.States
             _player.AreasInteraction.TreeInTheArea += StartCuttingTree;
             _player.AreasInteraction.RockInTheArea += StartMining;
             _player.AreasInteraction.FoodInTheArea += StartGathering;
+            _player.AreasInteraction.UpgradeTheArea += StartUpgrade;
             base.Enter();
+        }
+
+        private void StartUpgrade(object obj)
+        {
+            stateMachine.ChangeState(PlayerStateEnum.Upgrade, obj);
         }
 
         private void StartMining(object obj)
@@ -60,6 +66,7 @@ namespace Assets.Scripts.Player.PlayerStates.States
             _player.AreasInteraction.TreeInTheArea -= StartCuttingTree;
             _player.AreasInteraction.RockInTheArea -= StartMining;
             _player.AreasInteraction.RockInTheArea -= StartGathering;
+            _player.AreasInteraction.UpgradeTheArea -= StartUpgrade;
             base.Exit();
         }
     }

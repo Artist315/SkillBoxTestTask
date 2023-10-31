@@ -36,9 +36,9 @@ public class StateMachine
             case PlayerStateEnum.Gather:
                 CurrentState = _playerFiniteStateMachineModel.Gather;
                 break;
-            //case PlayerStateEnum.Detecting:
-            //    CurrentState = _playerFiniteStateMachineModel.Detecting;
-            //    break;
+            case PlayerStateEnum.Upgrade:
+                CurrentState = _playerFiniteStateMachineModel.Upgrade;
+                break;
             //case PlayerStateEnum.Default:
             //    break;
             default:

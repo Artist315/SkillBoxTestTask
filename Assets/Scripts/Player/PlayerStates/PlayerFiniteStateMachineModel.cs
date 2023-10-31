@@ -10,6 +10,7 @@ public class PlayerFiniteStateMachineModel
     public MineState Mine { private set; get; }
     public IdleState Idle { private set; get; }
     public GatherState Gather { private set; get; }
+    public UpgradeState Upgrade { private set; get; }
 
     public PlayerFiniteStateMachineModel()
     {
@@ -20,6 +21,7 @@ public class PlayerFiniteStateMachineModel
         Mine    = new MineState(_stateMachine);
         Idle    = new IdleState(_stateMachine);
         Gather  = new GatherState(_stateMachine);
+        Upgrade = new UpgradeState(_stateMachine);
 
         _stateMachine.Initialize(Idle);
     }

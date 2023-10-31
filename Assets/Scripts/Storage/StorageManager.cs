@@ -21,7 +21,6 @@ public static class StorageManager
             var data = JsonUtility.FromJson<ResourcesData>(json);
             return data;
         }
-        //File.Create(connectionString);
         return new ResourcesData();
     }
     public static void SaveResources(ResourcesData data)
@@ -68,7 +67,8 @@ public static class StorageManager
 public class ResourcesData
 {
     public int Wood = 0;
-    public int Rock = 0;
+    public int Stone = 0;
+    public int Food = 0;
 }
 
 public class PlayerSettings

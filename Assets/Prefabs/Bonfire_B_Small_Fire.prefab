@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4311348512465420463}
   - component: {fileID: 8568169636244357356}
   - component: {fileID: 8485757200270263318}
+  - component: {fileID: 4366493824351766603}
   m_Layer: 0
   m_Name: Bonfire_B_Small_Fire
   m_TagString: Untagged
@@ -4826,6 +4827,31 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4366493824351766603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3533817654205999261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd01a0b47c7d74d4494420ce3b6d5c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpgradeRequirements:
+  - WoodAmount: 10
+    FoodAmount: 0
+    StoneAmount: 0
+  - WoodAmount: 40
+    FoodAmount: 0
+    StoneAmount: 0
+  - WoodAmount: 120
+    FoodAmount: 0
+    StoneAmount: 0
+  - WoodAmount: 500
+    FoodAmount: 0
+    StoneAmount: 0
 --- !u!1001 &1527043848361427534
 PrefabInstance:
   m_ObjectHideFlags: 0

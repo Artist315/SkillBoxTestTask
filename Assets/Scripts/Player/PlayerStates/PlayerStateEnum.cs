@@ -6,6 +6,7 @@ public enum  PlayerStateEnum
     Walk,
     Chop,
     Mine,
-    Gather
+    Gather,
+    Upgrade
 
 }

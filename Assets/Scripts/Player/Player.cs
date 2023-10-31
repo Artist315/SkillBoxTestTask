@@ -7,7 +7,9 @@ public class Player : Singleton<Player>
 {
     #region Models
     private PlayerFiniteStateMachineModel   playerFiniteStateMachineModel;
-    internal AreasInteraction                AreasInteraction;
+    internal AreasInteraction               AreasInteraction;
+    [SerializeField]
+    internal UpgradeDialogWindow            UpgradeDialogWindow;
 
     #endregion
     #region Views
@@ -17,11 +19,15 @@ public class Player : Singleton<Player>
     #region Player Settings
     public PlayerSettings PlayerSettings { get; private set; }
     #endregion
-    // Start is called before the first frame update
+
     private void Awake()
     {
         _playerMoverView = GetComponent<PlayerMoverView>();
         AreasInteraction = GetComponent<AreasInteraction>();
+        if (UpgradeDialogWindow == null)
+        {
+            Debug.LogError("UpgradeDialogWindow not assigned");
+        }
         PlayerSettings = StorageManager.ReadPlayerSettings();
     }
 
@@ -37,5 +43,10 @@ public class Player : Singleton<Player>
     private void FixedUpdate()
     {
         playerFiniteStateMachineModel.FixedUpdate();
+    }
+
+    public void UpdatePlayerSettings()
+    {
+        PlayerSettings = StorageManager.ReadPlayerSettings();
     }
 }

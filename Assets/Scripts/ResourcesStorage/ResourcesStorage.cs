@@ -25,15 +25,25 @@ public static class ResourcesStorage
     }
     public static ResourcesData _data;
 
+    #region Wood
     public static void AddWood(int amount)
     {
-        if (amount>0)
+        if (amount > 0)
         {
             Data.Wood += amount;
             StorageManager.SaveResources(Data);
             ResourcesUpdated?.Invoke();
         }
     }
+    public static void SubtractUpgradeResorces(UpgradeRequirements amount)
+    {
+        Data.Wood -= amount.WoodAmount;
+        Data.Stone -= amount.StoneAmount;
+        Data.Food -= amount.FoodAmount;
+        StorageManager.SaveResources(Data);
+        ResourcesUpdated?.Invoke();
+    }
+    #endregion
 
     private static void UpdateUI()
     {
@@ -44,7 +54,7 @@ public static class ResourcesStorage
     {
         if (amount > 0)
         {
-            Data.Rock += amount;
+            Data.Stone += amount;
             StorageManager.SaveResources(Data);
             ResourcesUpdated?.Invoke();
         }
