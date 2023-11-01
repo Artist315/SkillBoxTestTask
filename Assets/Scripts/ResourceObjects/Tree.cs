@@ -7,6 +7,21 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour, ResourceObject
 {
-    public int ResourceProTick { get; set; } = 10;
-    public int ResourceAmount { get; set; } = 1000;
+    private int resourceAmount = 40;
+
+    public int ResourceAmount
+    {
+        get
+        {
+            return resourceAmount;
+        }
+        set
+        {
+            resourceAmount = value;
+            if (resourceAmount <= 0)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
 }

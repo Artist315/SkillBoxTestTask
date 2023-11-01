@@ -30,7 +30,7 @@ public class GatherState : PlayerState
         base.Enter();
         Debug.Log("LookAtTree");
         _playerMoverView.LookAt(Food.transform);
-        coroutine = TimerManager.Instance.CreateRepeatedTimer(.5f, GetFood);
+        coroutine = TimerManager.Instance.CreateRepeatedTimer(_player.PlayerSettings.FoodRecieveSpeed, GetFood);
     }
     public override void HandleInput()
     {
@@ -50,11 +50,11 @@ public class GatherState : PlayerState
 
     private void GetFood()
     {
-        if (Food.ResourceAmount - Food.ResourceProTick > 0)
+        if (Food.ResourceAmount - _player.PlayerSettings.FoodProTick > 0)
         {
             Debug.Log("RecieveFood");
-            Food.ResourceAmount -= Food.ResourceProTick;
-            ResourcesStorage.AddFood(Food.ResourceProTick);
+            Food.ResourceAmount -= _player.PlayerSettings.FoodProTick;
+            ResourcesStorage.AddFood(_player.PlayerSettings.FoodProTick);
         }
     }
 

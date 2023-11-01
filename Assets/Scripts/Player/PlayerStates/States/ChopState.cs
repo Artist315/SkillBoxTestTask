@@ -21,7 +21,7 @@ namespace Assets.Scripts.Player.PlayerStates.States
             _playerMoverView.SetAnimation("AnimState", 2);
             Debug.Log("LookAtTree");
             _playerMoverView.LookAt(Tree.transform);
-            coroutine = TimerManager.Instance.CreateRepeatedTimer(.5f, GetWood);
+            coroutine = TimerManager.Instance.CreateRepeatedTimer(_player.PlayerSettings.WoodRecieveSpeed, GetWood);
 
             base.Enter();
         }
@@ -44,11 +44,11 @@ namespace Assets.Scripts.Player.PlayerStates.States
 
         private void GetWood()
         {
-            if (Tree.ResourceAmount - Tree.ResourceProTick > 0)
+            if (Tree.ResourceAmount - _player.PlayerSettings.StoneProTick > 0)
             {
                 Debug.Log("RecieveWood");
-                Tree.ResourceAmount -= Tree.ResourceProTick;
-                ResourcesStorage.AddWood(Tree.ResourceProTick);
+                Tree.ResourceAmount -= _player.PlayerSettings.WoodProTick;
+                ResourcesStorage.AddWood(_player.PlayerSettings.WoodProTick);
             }
         }
 

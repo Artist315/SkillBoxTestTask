@@ -8,8 +8,8 @@ using UnityEngine;
 
 public static class StorageManager
 {
-    private const string ResourcesDataConnectionString = "ResourcesData";
-    private const string PlayerSettingsConnectionString = "PlayerSettings";
+    private const string ResourcesDataConnectionString = "ResourcesData.json";
+    private const string PlayerSettingsConnectionString = "PlayerSettings.json";
 
     #region ResourcesData
     public static ResourcesData ReadResourcesData()
@@ -73,4 +73,18 @@ public class ResourcesData
 public class PlayerSettings
 {
     public float Speed = 3;
+
+    #region Wood
+    public int WoodProTick;
+    public double WoodRecieveSpeed;
+    #endregion
+
+    #region Food
+    public int FoodProTick;
+    public double FoodRecieveSpeed;
+    #endregion
+    #region Stone
+    public int StoneProTick;
+    public double StoneRecieveSpeed;
+    #endregion
 }

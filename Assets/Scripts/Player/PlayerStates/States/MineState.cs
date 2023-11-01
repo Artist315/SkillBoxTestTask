@@ -32,7 +32,7 @@ public class MineState : PlayerState
         base.Enter();
         Debug.Log("LookAtTree");
         _playerMoverView.LookAt(Rock.transform);
-        coroutine = TimerManager.Instance.CreateRepeatedTimer(.5f, GetWood);
+        coroutine = TimerManager.Instance.CreateRepeatedTimer(_player.PlayerSettings.StoneRecieveSpeed, GetWood);
     }
     public override void HandleInput()
     {
@@ -53,11 +53,11 @@ public class MineState : PlayerState
 
     private void GetWood()
     {
-        if (Rock.ResourceAmount - Rock.ResourceProTick > 0)
+        if (Rock.ResourceAmount - _player.PlayerSettings.StoneProTick > 0)
         {
             Debug.Log("RecieveStones");
-            Rock.ResourceAmount -= Rock.ResourceProTick;
-            ResourcesStorage.AddStone(Rock.ResourceProTick);
+            Rock.ResourceAmount -= _player.PlayerSettings.StoneProTick;
+            ResourcesStorage.AddStone(_player.PlayerSettings.StoneProTick);
         }
     }
 

@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   Speed: 3
+  WoodProTick: 14
+  WoodRecieveSpeed: 0.9
+  FoodProTick: 9
+  FoodRecieveSpeed: 1.7
+  StoneProTick: 5
+  StoneRecieveSpeed: 1

@@ -19,6 +19,13 @@ public class TimerManager : Singleton<TimerManager>, IDisposable
         coroutines.Add(coroutine);
         return coroutine;
     }
+    
+    public Coroutine CreateRepeatedTimer(double delay, Action action)
+    {
+        var coroutine = StartCoroutine(WaitForRepeated((float)delay, action));
+        coroutines.Add(coroutine);
+        return coroutine;
+    }
 
     public void Dispose()
     {

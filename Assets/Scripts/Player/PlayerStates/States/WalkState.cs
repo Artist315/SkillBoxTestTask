@@ -13,9 +13,9 @@ namespace Assets.Scripts.Player.PlayerStates.States
         {
             Name = "WalkState";
             _playerMoverView.SetAnimation("AnimState", 1);
-            _player.AreasInteraction.TreeInTheArea += StartCuttingTree;
-            _player.AreasInteraction.RockInTheArea += StartMining;
-            _player.AreasInteraction.FoodInTheArea += StartGathering;
+            _player.AreasInteraction.TreeInTheArea  += StartCuttingTree;
+            _player.AreasInteraction.RockInTheArea  += StartMining;
+            _player.AreasInteraction.FoodInTheArea  += StartGathering;
             _player.AreasInteraction.UpgradeTheArea += StartUpgrade;
             base.Enter();
         }
@@ -63,9 +63,9 @@ namespace Assets.Scripts.Player.PlayerStates.States
 
         public override void Exit()
         {
-            _player.AreasInteraction.TreeInTheArea -= StartCuttingTree;
-            _player.AreasInteraction.RockInTheArea -= StartMining;
-            _player.AreasInteraction.RockInTheArea -= StartGathering;
+            _player.AreasInteraction.TreeInTheArea  -= StartCuttingTree;
+            _player.AreasInteraction.RockInTheArea  -= StartMining;
+            _player.AreasInteraction.RockInTheArea  -= StartGathering;
             _player.AreasInteraction.UpgradeTheArea -= StartUpgrade;
             base.Exit();
         }
