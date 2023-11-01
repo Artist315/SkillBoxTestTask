@@ -28,14 +28,14 @@ public abstract class UpgradeSource : MonoBehaviour, IUpgradeSource
         }
         if (!UpgradeCheck())
         {
-            Debug.Log("UpgradeCheck failed");
+            Player.Instance.UpgradeDialogWindow.OnError("Недостоточно ресурсов");
 
             return false;
         }
 
         ResourcesStorage.SubtractUpgradeResorces(UpgradeRequirements[Level]);
-        ApplyUpgrade();
         Level++;
+        ApplyUpgrade();
         return true;
 
     }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -9,7 +10,7 @@ public class Player : Singleton<Player>
     private PlayerFiniteStateMachineModel   playerFiniteStateMachineModel;
     internal AreasInteraction               AreasInteraction;
     [SerializeField]
-    internal UpgradeDialogWindow            UpgradeDialogWindow;
+    public UpgradeDialogWindow            UpgradeDialogWindow;
 
     #endregion
     #region Views

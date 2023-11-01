@@ -45,6 +45,7 @@ public class UpgradeState : PlayerState
 
     public override void Exit()
     {
+        _player.UpgradeDialogWindow.CloseError();
         _player.UpgradeDialogWindow.gameObject.SetActive(false);
         base.Exit();
     }

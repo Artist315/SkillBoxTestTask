@@ -29,7 +29,6 @@ namespace Assets.Scripts.Player.PlayerStates.States
         {
             base.HandleInput();
 
-            var dir = Horizontal + Vertical;
             var currentDist = Vector3.Distance(Tree.transform.position , _player.transform.position);
             if (currentDist < Vector3.Distance(Tree.transform.position, _player.transform.position + new Vector3(Horizontal, 0, Vertical)))
             {
@@ -56,7 +55,6 @@ namespace Assets.Scripts.Player.PlayerStates.States
                 ResourcesStorage.AddWood(Tree.ResourceAmount);
                 Tree.ResourceAmount = 0;
                 stateMachine.ChangeState(PlayerStateEnum.Idle);
-
             }
         }
 

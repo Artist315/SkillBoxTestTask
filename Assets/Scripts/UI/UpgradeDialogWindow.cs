@@ -10,13 +10,20 @@ public class UpgradeDialogWindow : MonoBehaviour
     private Button _upgradeButton;
     private TextMeshProUGUI _text;
     private IUpgradeSource upgradeSource;
+    private ErrowWindow _errorWindow;
 
     private void Awake()
     {
         _upgradeButton = GetComponentInChildren<Button>();
+        _errorWindow = GetComponentInChildren<ErrowWindow>(); 
+        _errorWindow.gameObject.SetActive(false);
         if (_upgradeButton == null)
         {
             throw new Exception("No button in children");
+        }
+        if (_errorWindow == null)
+        {
+            throw new Exception("No errorWindow in children");
         }
         _text = GetComponentInChildren<TextMeshProUGUI>();
         gameObject.SetActive(false);
@@ -24,8 +31,12 @@ public class UpgradeDialogWindow : MonoBehaviour
 
     public void OnClick()
     {
-        upgradeSource.Upgrade();
-        gameObject.SetActive(false);
+        
+        if (upgradeSource.Upgrade())
+        {
+            gameObject.SetActive(false);
+
+        }
     }
 
     internal void Activate(IUpgradeSource upgradeSource)
@@ -44,9 +55,22 @@ public class UpgradeDialogWindow : MonoBehaviour
         }
         else
         {
-            _text.text = "Достигнут максимальный уровень";
+            OnError("Достигнут максимальный уровень");
             _upgradeButton.gameObject.SetActive(false);
 
         }
     }
+
+    public void OnError(string text)
+    {
+        //_text.text = text;
+        _errorWindow.SentText(text);
+    }
+
+    public void CloseError()
+    {
+        _errorWindow.gameObject.SetActive(false);
+    }
+
+
 }
