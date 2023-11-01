@@ -59,6 +59,14 @@ public class MineState : PlayerState
             Rock.ResourceAmount -= _player.PlayerSettings.StoneProTick;
             ResourcesStorage.AddStone(_player.PlayerSettings.StoneProTick);
         }
+        else if (Rock.ResourceAmount > 0)
+        {
+            Debug.Log("RecieveResttones");
+            ResourcesStorage.AddWood(Rock.ResourceAmount);
+            Rock.ResourceAmount = 0;
+            stateMachine.ChangeState(PlayerStateEnum.Idle);
+
+        }
     }
 
     public override void Exit()

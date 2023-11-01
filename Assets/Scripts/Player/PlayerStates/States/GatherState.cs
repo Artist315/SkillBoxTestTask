@@ -56,6 +56,14 @@ public class GatherState : PlayerState
             Food.ResourceAmount -= _player.PlayerSettings.FoodProTick;
             ResourcesStorage.AddFood(_player.PlayerSettings.FoodProTick);
         }
+        else if (Food.ResourceAmount > 0)
+        {
+            Debug.Log("RecieveResttones");
+            ResourcesStorage.AddWood(Food.ResourceAmount);
+            Food.ResourceAmount = 0;
+            stateMachine.ChangeState(PlayerStateEnum.Idle);
+
+        }
     }
 
     public override void Exit()

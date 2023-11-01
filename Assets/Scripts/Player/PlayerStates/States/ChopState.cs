@@ -47,8 +47,16 @@ namespace Assets.Scripts.Player.PlayerStates.States
             if (Tree.ResourceAmount - _player.PlayerSettings.StoneProTick > 0)
             {
                 Debug.Log("RecieveWood");
-                Tree.ResourceAmount -= _player.PlayerSettings.WoodProTick;
                 ResourcesStorage.AddWood(_player.PlayerSettings.WoodProTick);
+                Tree.ResourceAmount -= _player.PlayerSettings.WoodProTick;
+            }
+            else if (Tree.ResourceAmount> 0)
+            {
+                Debug.Log("RecieveRestWood");
+                ResourcesStorage.AddWood(Tree.ResourceAmount);
+                Tree.ResourceAmount = 0;
+                stateMachine.ChangeState(PlayerStateEnum.Idle);
+
             }
         }
 
