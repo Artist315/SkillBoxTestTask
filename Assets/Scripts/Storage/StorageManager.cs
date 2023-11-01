@@ -42,7 +42,6 @@ public static class StorageManager
             var data = JsonUtility.FromJson<PlayerSettings>(json);
             return data;
         }
-        //File.Create(connectionString);
         return new PlayerSettings();
     }
 

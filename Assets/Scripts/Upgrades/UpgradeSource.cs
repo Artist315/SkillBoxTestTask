@@ -18,8 +18,6 @@ public abstract class UpgradeSource : MonoBehaviour, IUpgradeSource
     public virtual void Start()
     {
         MaxLevel = Mathf.Min(UpgradeRequirements.Count, UpgradeResult.Count);
-        Debug.Log($"{UpgradeRequirements.Count}");
-        Debug.Log($"{UpgradeResult.Count}");
     }
     public virtual bool Upgrade()
     {
@@ -31,6 +29,7 @@ public abstract class UpgradeSource : MonoBehaviour, IUpgradeSource
         if (!UpgradeCheck())
         {
             Debug.Log("UpgradeCheck failed");
+
             return false;
         }
 

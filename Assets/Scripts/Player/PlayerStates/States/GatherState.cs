@@ -54,7 +54,7 @@ public class GatherState : PlayerState
         {
             Debug.Log("RecieveFood");
             Food.ResourceAmount -= Food.ResourceProTick;
-            ResourcesStorage.AddStone(Food.ResourceProTick);
+            ResourcesStorage.AddFood(Food.ResourceProTick);
         }
     }
 
